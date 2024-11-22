@@ -1,0 +1,432 @@
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.title {
+    font-size: 2rem;
+    font-family: Times New Roman;
+    margin-left: 80px;
+    margin-top: 10px;
+    white-space: nowrap;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+}
+
+
+
+#sidebar {
+    width: 300px;
+    min-width: 250px;
+    z-index: 800;
+    transition: all .25s ease-in-out;
+    background-color: #0e2238;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.hide .side-menu li a {
+    width: calc(48px - (4px * 2));
+}
+
+#sidebar.hide~#content {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 20px;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.sidebar-item {
+    position: relative;
+
+}
+
+.heading {
+    color: #FFF;
+    align-items: center;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.profile-details {
+    height: 60px;
+    width: 60px;
+    position: relative;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-image: url(../images.jpg);
+    background-size: 100% 100%;
+}
+
+/* img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 60%;
+    margin-right: 10px;
+} */
+
+.sidebar li.profile .designation {
+    font-size: 9px;
+}
+
+.sidebar .profile #log_out {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: var(--color-second);
+    width: 50px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: all 0.5s ease;
+}
+
+.health {
+    background-color: #0e2238;
+    width: 100%;
+}
+
+.text-right {
+    width: 45%;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fafbfe;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+
+.main .info-data {
+    margin-top: 1px;
+    display: grid;
+    grid-template-columns: repeat(3, [col-start] minmax(260px, 1fr) [col-end]);
+    grid-gap: 10px;
+    margin-left: 80px;
+    text-align: center;
+}
+
+.main .info-data .card {
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--light);
+    display: flex;
+    align-items: left;
+    box-shadow: 3px 3px 16px rgba(0, 0, 0, .05);
+}
+
+.main .info-data .card .bloodPressure {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+main .card .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.main .card .head h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.main .card .head p {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.circular--landscape {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: rgba(137, 207, 240, 0.2)
+}
+
+.icon-center {
+    color: deepskyblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 35px;
+    transform: translate(-50%, -50%);
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: repeat(2, [col-start] minmax(526px, 1fr) [col-end]);
+    grid-gap: 3px;
+    width: 100%;
+    padding: 1px;
+    padding-top: 10;
+    font-family: Times New Roman;
+    margin-left: 80px;
+    margin-top: 40px;
+}
+
+.chart .h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.chart {
+    background: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, .05);
+    width: 100%;
+}
+.chartDoc {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, [col-start] minmax(395px, 1fr) [col-end]);
+    grid-gap: 10px;
+}
+
+/* .Userimage{
+    height:100px;
+    width:100px;
+    margin-top: -747px;
+    margin-left: 150%;
+    display: grid;
+    display: flex;
+    align-items: left;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, .05);
+    border:10px solid #ff675b;
+    border-color: deepskyblue;
+}
+ .img-show{
+    max-width: 100%;
+    max-height: 550px;
+    height: auto;
+    display: block;
+    margin: 42%;
+    border:20px deepskyblue;
+} */
+.imgshow{
+    height:117px;
+    width:121px;
+    margin-top: -680px;
+    margin-left: 180%;
+    align-items: left;
+    border-radius: 50%;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, .05);   
+    box-sizing: border-box;
+    background: #FFF;
+    display: block;
+    margin: 7%;
+    margin-left: 36%;
+    border:10px solid #ff675b;
+    border-color: deepskyblue;
+    /* border:20px deepskyblue;  */
+}
+.userpage{
+    
+     background: #FFF; 
+     box-shadow: 0 7px 25px rgba(0, 0, 0, .05); 
+     margin-top: -590px;
+     margin-left: 60%;
+     margin-right: -71%;
+     border-radius: 10px;
+     /* margin-top: 40px;  */
+    /* display: grid;
+    grid-template-columns: repeat(1, [col-start] minmax(395px, 1fr) [col-end]);
+    grid-gap: 10px;  */
+}
+
+.details{
+   margin-left:25%;
+}
+/* .Pro_details{
+   margin-top: -25%;
+   margin-left: 53%;
+} */
+ .textAlign{
+   margin-top: -10%; 
+   margin-left:35%;
+ }
+ .feTextPage{
+    font-weight: bold;
+     margin-top: -3%; 
+     margin-left: 35%;
+ }
+ .yearText{
+    font-weight: bold;
+     margin-top: -7%; 
+     margin-left: 64%;
+ }
+ .htText{
+    font-weight: bold;
+    margin-left: 35%;
+    margin-top: -3%;
+ }
+ .weight{
+    margin-left: 64%;
+    font-weight: bold;
+    margin-top: -7%;
+ }
+ .appointText{
+    font-weight: bold; 
+    margin-top:-10%; 
+    margin-left: 10%;
+ }
+ .appointTextVal{
+    margin-top:-7%; 
+    margin-left: 10%;
+ }
+ .wtDesign{
+   margin-top: -7%; 
+   margin-left: 64%;
+ }
+ .ageDesign{
+    margin-top: -7%; 
+    margin-left: 63%;
+ }
+ .font{
+    font-weight: bold; 
+    margin-top: -3%; 
+    margin-left: 63%;
+ }
+/* .h4{
+   font-weight: bold;  
+   margin-left: 2%;
+} */
+.information{
+    border: 10px solid lightgrey; 
+    background-color: lightgrey; 
+    margin-left: 30%; 
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px; 
+    border-bottom-right-radius: 20px;
+    text-align: center;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+.iconitem{
+    display: inline-block;
+    margin-top: 3%;
+}
+.MedicalHis{
+    margin-top:-5%; 
+    margin-left: 75%; 
+    font-weight: bold;
+}

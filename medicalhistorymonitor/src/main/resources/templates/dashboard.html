@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome back, Kate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href=@{css/dashboard.css}>
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside id="sidebar" th:insert="~{sidebar_layout}"></aside>
+
+        <div class="health">
+            <div class="main p-3">
+                <div class="text-right">
+                    <h1 class="title">Welcome back, Kate
+                    </h1>
+                    <div>
+                        <div class="info-data">
+                            <div class="card">
+                                <div class="head">
+                                    <div class="circular--landscape">
+                                        <i class="bi bi-droplet-fill material-icons icon-center"></i>
+                                    </div>
+                                    <span class="text">
+                                        <p>Blood Status</p>
+                                        <h2>100/70</h2>
+                                        <p>Higher than average</p>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="head">
+                                    <div class="circular--landscape">
+                                        <i class="bi bi-heart-pulse material-icons icon-center"></i>
+                                    </div>
+                                    <span class="text">
+                                        <p>Heart Rate</p>
+                                        <h2>78bmp</h2>
+                                        <p>Lower than average</p>
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="head">
+                                    <div class="circular--landscape">
+                                        <i class="bi bi-clipboard2-pulse-fill material-icons icon-center"></i>
+                                    </div>
+                                    <span class="text">
+                                        <p>Glucose Level</p>
+                                        <h2>78-92</h2>
+                                        <p>Higher than average</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="charts">
+                        <div class="chart">
+                            <span class="text">
+                                <h3 style="font-weight: bold;">Hemoglobin</h3>
+                            </span>
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                        <div class="info-data" style="margin-left: 2%;">
+                            <div class="card">
+                                <div class="head">
+                                    <p>Blood Pressure</p>
+                                    <h2>100 mg/dl</h2>
+                                    <p>Higher than average</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chartDoc">
+                            <div class="chart">
+                                <h3 style="font-weight: bold;">Illness Diagnosis</h3><br>
+                                <span>Code</span><span style="margin-left: 40%;">Name</span>
+                                <span style="font-weight: bold;">D40.8</span><span
+                                    style="font-weight: bold; margin-left: 38%;">Diabets Melitus</span><br>
+                                <span>Diagnozed</span><span style="margin-left: 30%;">Treatment</span><br>
+                                <span style="font-weight: bold;">04-10-2021</span><span
+                                    style="font-weight: bold; margin-left: 30%;">Insulin Pump</span>
+                            </div>
+                            <div class="chart">
+                                <h3 style="font-weight: bold;">Documents</h3><br>
+                                <div class="circular--landscape">
+                                    <i style="font-size: 20px; color: #3a9dbd;"
+                                        class="bi bi-file-earmark-text icon-center"></i>
+                                </div>
+                                <p style="margin-top: -11%; margin-left: 16%;"><a href="D:\Deekshana\SideBarUsingHTMLAndCss\Register\Register\src\main\resources\PDF\Blood Status.pdf">Blood
+                                    Status.pdf</a><i style="margin-left: 40px;" class="bi bi-download"></i></p><br>
+                                <div class="circular--landscape">
+                                    <i style="font-size: 20px; color: #3a9dbd;"
+                                        class="bi bi-file-earmark-text icon-center"></i>
+                                </div>
+                              <p style="margin-top: -11%; margin-left: 16%;"><a href="D:\Deekshana\SideBarUsingHTMLAndCss\Register\Register\src\main\resources\PDF\Heart_Rate_Measurement.pdf">Heart
+                                    Rate.pdf</a>
+                                <i style="margin-left: 40px;" class="bi bi-download"></i></p>
+                            </div>
+                    </div>
+                        <div class="userpage">
+                            <img src="Images/userImage.png" class="imgshow">
+                            <div class="details">
+                            <div class="circular--landscape" >
+                                <i class="bi bi-gender-ambiguous material-icons icon-center"></i>
+                            </div>
+                            <div class="circular--landscape" style="margin-top: -12%; margin-left:25%;">
+                                <i class="bi bi-person material-icons icon-center" ></i>                           
+                            </div>
+                        </div>
+                            <p class="textAlign">Gender</p><p class="ageDesign">Age</p>
+                            <p class="feTextPage">Female</p><p class="yearText">25 years</p><br>                                                                           
+                            <div class="details">
+                            <div class="circular--landscape">
+                                <i class="bi bi-arrows-vertical material-icons icon-center"></i>
+                            </div>
+                            <div class="circular--landscape" style="margin-top: -12%; margin-left:25%;">
+                                <i class="bi bi-gender-ambiguous material-icons icon-center"></i>
+                            </div>  
+                        </div>
+                            <p class="textAlign">Height</p><p class="wtDesign">Weight</p>
+                            <p class="htText">173 cm</p> <p class="weight">58 kg</p>
+                              
+                            <input class="information" type="Show All Informations" value="Show All Informations"/><br>
+
+                            <h4 style="font-weight: bold;  margin-left: 2%;">Appointment History</h4>     
+                            <p class="MedicalHis">See All<i class="bi bi-chevron-right"></i></p>
+                          <div class="iconitem">
+                             <div class="circular--landscape"> 
+                                <i class="bi bi-calendar4 material-icons icon-center"></i>      
+                             </div> 
+                          </div> 
+                            <p class="appointText">Medical Checkup<i style="margin-left:80%;" class="bi bi-chevron-right"></i></p>
+                            <p class="appointTextVal">August 20-9:30 am</p>   
+
+                        <div class="iconitem">
+                            <div class="circular--landscape" >
+                                <i class="bi bi-fullscreen material-icons icon-center"></i>
+                            </div>
+                        </div>
+                            <p class="appointText">Screening</p><i style="margin-left:82%;" class="bi bi-chevron-right"></i>
+                            <p class="appointTextVal">August 22-3:30 pm</p>
+                            
+                        <div class="iconitem">
+                            <div class="circular--landscape">
+                                <i class="bi bi-chat-dots material-icons icon-center"></i>
+                            </div>
+                        </div>
+                            <p class="appointText">Chat Consultation<i style="margin-left:80%;" class="bi bi-chevron-right"></i></p>
+                            <p class="appointTextVal">August 27-8:30am</p>                
+                    </div>
+                        <!-- <a href="/logout" th:href="@{/logout}">Logout</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" th:src="@{/js/chartlayout.js}"></script>
+    <script type="text/javascript" th:src="@{/js/chart.js}"></script>
+    <!-- <script type="text/javascript" th:src="@{/jsp/profile_text.jsp}"></script> -->
+</body>
+
+</html>
